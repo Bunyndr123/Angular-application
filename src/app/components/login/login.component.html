@@ -1,0 +1,21 @@
+<div class="login">
+    <div class="container">
+        <h2>Login 🌆😴</h2>
+        <form (ngSubmit)="authSubmit">
+            <input 
+                [(ngModel)]="login"
+                name="login"
+                type="text" 
+                class="form-text" 
+                placeholder="login">
+            <input
+                [(ngModel)]="password" 
+                name="password"
+                type="password" 
+                class="form-text" 
+                placeholder="password">
+            <button (click)="authSubmit()" type="submit" class="btn btn-primary">Login</button>
+            <a href="/reg">Создать новый аккаунт</a>
+        </form>
+    </div>
+</div>

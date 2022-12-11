@@ -1,0 +1,24 @@
+
+<div class="py-4 px-6 border rounded flex items-center flex-col mb-2">
+    <img [src]="post.image" [alt]="post._id" class="w-1/6 mb-4"> 
+    <h2 class="mb-2 text-md text-center">{{post.title}}</h2>
+    <p>Likes {{post.likes.length}}</p>
+
+    <button 
+        (click)="comments = !comments"
+        class="border py-2 px-2 rounde"
+        [ngClass]="{
+            'bg-yellow-400': !comments,
+            'bg-blue-400': comments
+        }"
+        >
+        {{ comments ? "Hide" : "Show"}} Comments {{post.comments.length}}
+    </button>
+
+    <div *ngIf="comments">
+        <p *ngIf="post.comments.length == 0">Комменатриев нет.</p>
+        <div *ngIf="post.comments.length != 0">
+            <app-comment *ngFor="let comment of post.comments"[text]="comment"></app-comment>
+        </div>
+    </div>
+</div>
